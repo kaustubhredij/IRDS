@@ -1,0 +1,14 @@
+Text="MapReduce is a processing technique and a program model for distributed computing based on java."
+from collections import OrderedDict
+for char in '_.,\n':
+    Text = Text.replace(char,'.')
+    Text = Text.lower()
+    word_list = Text.split()
+
+from collections import Counter
+Counter(word_list).most_common()
+d = {}
+for word in word_list:
+    d[word] = d.get(word,0)+1
+    d = OrderedDict(sorted(d.items()))
+print(d)

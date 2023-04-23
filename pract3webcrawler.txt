@@ -1,0 +1,14 @@
+import requests
+from bs4 import BeautifulSoup
+def web(page, url):
+    if(page > 0):
+        print("The Links are: ")
+        code = requests.get(url)
+        plain = code.text
+        s = BeautifulSoup(plain, "html.parser")
+
+        for link in s.findAll('a'):
+            result = link.get("href")
+            print(result)
+
+web(1, "https://www.facebook.com")
